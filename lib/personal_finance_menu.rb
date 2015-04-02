@@ -40,7 +40,7 @@ while true
   when 5
     remove_transaction(get_account)
   when 6
-    view_transaction_by_category(get_account)
+    view_transaction_by_category 
   when 7
     puts "Thank you for using the Personal Finance Manager. Good-bye!"
     break

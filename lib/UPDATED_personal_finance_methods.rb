@@ -8,7 +8,7 @@ def update_balance(transaction_id)
   account = transaction.account
   balance = account.balance
 
-    if transaction.credit = true
+    if transaction.credit == true
       account.update(balance: balance + transaction.amount)
     else
       account.update(balance: balance - transaction.amount)
@@ -32,7 +32,7 @@ end
 
 
 def list_current_balance
-  #list total balance from Account model: display total (do we need .last?)
+  #lists balance of all accounts
   Account.all.each do |account|
     puts "Current balance of account #{account.id} is $#{account.balance}"
   end
@@ -40,6 +40,7 @@ end
 
 
 def list_all_transactions(account_id)
+  #lists all transactions for specified account
   account = Account.find(account_id)
   account.transactions.each do |transaction|
     puts "Transaction # #{transaction.id}, on #{transaction.date}, to #{transaction.payee}, in the cateogry of:#{transaction.category}, for $#{transaction.amount}"
@@ -114,6 +115,7 @@ def edit_transaction(account_id)
 
   transaction.update(date: new_date, payee: new_payee, category: new_category, amount: new_amount, credit: credit)
 
+  #this updates the balance of the account
   update_balance(transaction.id)
 
 end
@@ -135,8 +137,8 @@ def remove_transaction(account_id)
 end
 
 
-def view_transaction_by_category(account_id)
-  puts "Below are all categories with their transaction totals: "
+def view_transaction_by_category
+  puts "Below are all categories from all of your accounts with their transaction totals: "
 
 total_category_amount = Transaction.find_by_sql("SELECT category, SUM(amount) AS totalamount FROM transactions GROUP BY category ORDER BY totalamount DESC")
 
