@@ -4,7 +4,7 @@ require_relative 'personal_finance_db'
 #require_relative 'personal_finance_methods'
 require_relative 'UPDATED_personal_finance_methods'
 require_relative 'personal_finance_classes'
-#add seeds in here too?
+
 #require_relative 'personal_finance_seeds'
 #require 'pry'
 
@@ -40,7 +40,7 @@ while true
   when 5
     remove_transaction(get_account)
   when 6
-    view_transaction_by_category 
+    view_transaction_by_category
   when 7
     puts "Thank you for using the Personal Finance Manager. Good-bye!"
     break
