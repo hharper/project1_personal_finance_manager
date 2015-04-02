@@ -56,9 +56,17 @@ def add_transaction(account_id)
   date = gets.chomp
   puts "Who is the payee?"
   payee = gets.chomp
-  puts "What category does the transaction belong to?"
+  puts "What category does the transaction belong to? Please type out your choice based on the following list:"
   ##puts list of categories - user to type out
-  category = gets.chomp
+  puts "
+  -income
+  -rent
+  -transportation
+  -food
+  -shopping
+  -entertainment
+  -personal care"
+  category = gets.chomp.downcase
   puts "What is the total amount of the transaction?"
   amount = gets.chomp.to_f
   puts "Is it a credit? Indicate 'yes' or 'no'"
@@ -98,7 +106,15 @@ def edit_transaction(account_id)
   new_date = gets.chomp
   puts "What is the updated payee?"
   new_payee = gets.chomp
-  puts "What is the updated category?"
+  puts "What is the updated category? Please type out your choice based on the following list:"
+  puts "
+  -income
+  -rent
+  -transportation
+  -food
+  -shopping
+  -entertainment
+  -personal care"
   new_category = gets.chomp
   puts "What is the updated amount?"
   new_amount = gets.chomp.to_f

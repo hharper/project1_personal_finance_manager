@@ -14,7 +14,7 @@ class Transaction < ActiveRecord::Base
 
 
   #validate that date is correct date format (as a string...is there convert .to_date option?)
-  #validates :category, inclusion {in: %w(income rent transportation food shopping entertainment personal care ) message: "%{value} is not a valid category"}
-  #validates: amount, numericality: true
+  validates :category, :inclusion => { in: %w(income rent transportation food shopping entertainment personal care ), message: "%{value} is not a valid category"}
+  validates :amount, :numericality => true
   #validates :boolean_credit, presence: true
 end
