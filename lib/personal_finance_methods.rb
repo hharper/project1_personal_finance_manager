@@ -1,12 +1,21 @@
-# def add_account
-#   puts "What is account name?"
-#   id = gets.chomp
-#   puts "What brand is the fridge?"
-#   brand = gets.chomp
-#   puts "How large is the fridge in cubic feet?"
-#   size = gets.chomp.to_f
-#   Fridge.create(id: id, brand: brand, size: size)
-# end
+
+#PSEUDO CODE#
+#for each transaction, if the transaction is a credit (+), add its amount to the current account balance
+#else, if the transaction is NOT a credit (-), subtract its amount from the current account balance
+
+def update_balance(account_id)
+  account = Account.find(account_id)
+  balance = account.balance
+
+    if transaction.credit = true
+      account.update(balance: balance + transaction.amount)
+    else
+      account.update(balance: balance - transaction.amount)
+    end
+  end
+
+
+
 def list_all_accounts
   Account.all.each do |account|
     puts "Account # #{account.id} with a balance of $#{account.balance}."
@@ -62,18 +71,18 @@ def add_transaction(account_id)
     end
 
   account.transactions.create(date: date, payee: payee, category: category, amount: amount, credit: credit)
+
 end
 
 
 def edit_transaction(account_id)
   list_all_transactions(account_id)
-  # account = Account.find(account_id)
+
   puts "Which transaction would you like to edit?"
 
   transaction_id = gets.chomp.to_i
 
-  new_transaction = Transaction.find(transaction_id)#.update
-  #is this .delete or .update? or is a method even needed?
+  new_transaction = Transaction.find(transaction_id)
 
   puts "What is the updated date? mm/dd/yy"
   new_date = gets.chomp
@@ -94,12 +103,10 @@ def edit_transaction(account_id)
     credit = nil
   end
 
-  # new_transaction.transactions.create(date: new_date, payee: new_payee, category: new_category, amount: new_amount, credit: credit)
-# binding.pry
   new_transaction.update(date: new_date, payee: new_payee, category: new_category, amount: new_amount, credit: credit)
 
-end
 
+end
 
 
 

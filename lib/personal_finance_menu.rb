@@ -35,8 +35,10 @@ while true
     add_transaction(get_account)
   when 4
     edit_transaction(get_account)
+    update_balance
   when 5
     remove_transaction(get_account)
+    update_balance
   when 6
     view_transaction_by_category(get_account)
   when 7
