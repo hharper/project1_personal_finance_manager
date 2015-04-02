@@ -3,8 +3,9 @@
 #for each transaction, if the transaction is a credit (+), add its amount to the current account balance
 #else, if the transaction is NOT a credit (-), subtract its amount from the current account balance
 
-def update_balance(account_id)
-  account = Account.find(account_id)
+def update_balance(transaction_id)
+  transaction = Transaction.find(transaction_id)
+  account = transaction.account
   balance = account.balance
 
     if transaction.credit = true
@@ -72,6 +73,14 @@ def add_transaction(account_id)
 
   account.transactions.create(date: date, payee: payee, category: category, amount: amount, credit: credit)
 
+  #account.transactions.last.id
+  #this grabs the last transaction's id number
+  transaction_id = account.transactions.last.id
+
+  update_balance(transaction_id)
+
+  puts "Thank you. Your transaction has been added."
+
 end
 
 
@@ -82,7 +91,7 @@ def edit_transaction(account_id)
 
   transaction_id = gets.chomp.to_i
 
-  new_transaction = Transaction.find(transaction_id)
+  transaction = Transaction.find(transaction_id)
 
   puts "What is the updated date? mm/dd/yy"
   new_date = gets.chomp
@@ -103,9 +112,9 @@ def edit_transaction(account_id)
     credit = nil
   end
 
-  new_transaction.update(date: new_date, payee: new_payee, category: new_category, amount: new_amount, credit: credit)
+  transaction.update(date: new_date, payee: new_payee, category: new_category, amount: new_amount, credit: credit)
 
-  update_balance
+  update_balance(transaction.id)
 
 end
 
@@ -115,8 +124,14 @@ def remove_transaction(account_id)
   puts "Which transaction would you like to remove?"
   list_all_transactions(account_id)
   transaction_id = gets.chomp.to_i
+
+  #this updates the balance of the account
+  update_balance(transaction_id)
+
   Transaction.find(transaction_id).delete
   puts "Transaction has been removed"
+  #edit the above phrase once you confirm the account balance changes
+
 end
 
 

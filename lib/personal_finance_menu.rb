@@ -1,6 +1,8 @@
 
 require_relative 'personal_finance_db'
-require_relative 'personal_finance_methods'
+##UPDATED THIS WITH NEW CODE...COULD GO BACK TO:
+#require_relative 'personal_finance_methods'
+require_relative 'UPDATED_personal_finance_methods'
 require_relative 'personal_finance_classes'
 #add seeds in here too?
 #require_relative 'personal_finance_seeds'
@@ -35,10 +37,8 @@ while true
     add_transaction(get_account)
   when 4
     edit_transaction(get_account)
-    update_balance
   when 5
     remove_transaction(get_account)
-    update_balance
   when 6
     view_transaction_by_category(get_account)
   when 7
