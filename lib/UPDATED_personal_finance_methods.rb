@@ -67,7 +67,7 @@ def add_transaction(account_id)
   -entertainment
   -personal care"
   category = gets.chomp.downcase
-  if category != "income"||"rent"||"transportation"||"food"||"shopping"||"entertainment"||"personal care"
+  if category != "income"||category !="rent"||category !="transportation"||category !="food"||category !="shopping"||category !="entertainment"||category !="personal care"
     puts "#{category} is not a valid category. Please type a valid category from the given list above."
     category = gets.chomp.downcase
   end
@@ -122,6 +122,11 @@ def edit_transaction(account_id)
   -entertainment
   -personal care"
   new_category = gets.chomp
+  if new_category != "income"|| new_category != "rent"||new_category != "transportation"||new_category != "food"||new_category != "shopping"||new_category != "entertainment"||new_category != "personal care"
+    puts "#{category} is not a valid category. Please type a valid category from the given list above."
+    new_category = gets.chomp.downcase #this would allow user to re-enter valid 'new_category'
+  end
+
   puts "What is the updated amount?"
   new_amount = gets.chomp.to_f
   puts "Is it a credit? Indicate 'yes' or 'no'"
