@@ -67,6 +67,11 @@ def add_transaction(account_id)
   -entertainment
   -personal care"
   category = gets.chomp.downcase
+  if category != "income"||"rent"||"transportation"||"food"||"shopping"||"entertainment"||"personal care"
+    puts "#{category} is not a valid category. Please type a valid category from the given list above."
+    category = gets.chomp.downcase
+  end
+
   puts "What is the total amount of the transaction?"
   amount = gets.chomp.to_f
   puts "Is it a credit? Indicate 'yes' or 'no'"
@@ -81,6 +86,7 @@ def add_transaction(account_id)
     end
 
   account.transactions.create(date: date, payee: payee, category: category, amount: amount, credit: credit)
+  ##instead of .create, use .new and check .valid? if valid, proceed to .save, if not valid, puts errors#
 
   #account.transactions.last.id
   #this grabs the last transaction's id number
