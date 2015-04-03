@@ -67,13 +67,13 @@ def add_transaction(account_id)
   -entertainment
   -personal care"
   category = gets.chomp.downcase
-  if category != "income"||category !="rent"||category !="transportation"||category !="food"||category !="shopping"||category !="entertainment"||category !="personal care"
+  if !["income", "rent", "transportation", "personal care", "entertainment", "shopping", "food"].include?(category)
     puts "#{category} is not a valid category. Please type a valid category from the given list above."
     category = gets.chomp.downcase
   end
 
   puts "What is the total amount of the transaction?"
-  amount = gets.chomp.to_f
+  amount = gets.chomp
   puts "Is it a credit? Indicate 'yes' or 'no'"
   credit = gets.chomp.downcase
 
@@ -85,10 +85,24 @@ def add_transaction(account_id)
       credit = nil
     end
 
-  account.transactions.create(date: date, payee: payee, category: category, amount: amount, credit: credit)
+  #account.transactions.create(date: date, payee: payee, category: category, amount: amount, credit: credit)
   ##instead of .create, use .new and check .valid? if valid, proceed to .save, if not valid, puts errors#
 
-  #account.transactions.last.id
+  #account.transactions.new(date: date, payee: payee, category: category, amount: amount, credit: credit)
+
+  a = account.transactions.new(date: date, payee: payee, category: category, amount: amount, credit: credit)
+
+  a.valid?
+    if a.valid?
+      a.save
+      puts "Your entry is valid"
+    else
+      puts a.errors.messages
+      puts "Your entry is invalid"
+    end
+
+
+  #account.transactions.last.id:
   #this grabs the last transaction's id number
   transaction_id = account.transactions.last.id
 
