@@ -3,7 +3,6 @@ require_relative 'personal_finance_db'
 require_relative 'personal_finance_methods'
 require_relative 'personal_finance_classes'
 
-#require 'pry'
 
 puts "Welcome to the Personal Finance Manager!\n"
 
@@ -45,5 +44,3 @@ while true
     puts "Invalid option. Please select from the list above."
   end
 end
-
-#binding.pry

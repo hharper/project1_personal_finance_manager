@@ -83,11 +83,6 @@ def add_transaction(account_id)
       credit = nil
     end
 
-  #account.transactions.create(date: date, payee: payee, category: category, amount: amount, credit: credit)
-  ##instead of .create, use .new and check .valid? if valid, proceed to .save, if not valid, puts errors#
-
-  #account.transactions.new(date: date, payee: payee, category: category, amount: amount, credit: credit)
-
   a = account.transactions.new(date: date, payee: payee, category: category, amount: amount, credit: credit)
 
   a.valid?
@@ -155,17 +150,6 @@ def edit_transaction(account_id)
 
   a = transaction.update(date: new_date, payee: new_payee, category: new_category, amount: new_amount, credit: credit)
 
-  # a = account.transaction.new(date: new_date, payee: new_payee, category: new_category, amount: new_amount, credit: credit)
-
-  # a.valid?
-  #   if a.valid?
-  #     a.save
-  #     puts "Your entry is valid"
-  #   else
-  #     puts a.errors.messages
-  #     puts "Your entry is invalid"
-  #   end
-
   #this updates the balance of the account
   update_balance(transaction.id)
 
@@ -185,7 +169,7 @@ def remove_transaction(account_id)
 
   Transaction.find(transaction_id).delete
   puts "Transaction has been removed"
-  #edit the above phrase once you confirm the account balance changes
+
 
 end
 
