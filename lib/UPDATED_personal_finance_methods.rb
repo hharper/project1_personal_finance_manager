@@ -136,13 +136,20 @@ def edit_transaction(account_id)
   -entertainment
   -personal care"
   new_category = gets.chomp
-  if new_category != "income"|| new_category != "rent"||new_category != "transportation"||new_category != "food"||new_category != "shopping"||new_category != "entertainment"||new_category != "personal care"
-    puts "#{category} is not a valid category. Please type a valid category from the given list above."
-    new_category = gets.chomp.downcase #this would allow user to re-enter valid 'new_category'
+  if !["income", "rent", "transportation", "personal care", "entertainment", "shopping", "food"].include?(new_category)
+    puts "#{new_category} is not a valid category. Please type a valid category from the given list above."
+    new_category = gets.chomp.downcase
   end
 
+
+  # if new_category != "income"|| new_category != "rent"||new_category != "transportation"||new_category != "food"||new_category != "shopping"||new_category != "entertainment"||new_category != "personal care"
+  #   puts "#{category} is not a valid category. Please type a valid category from the given list above."
+  #   new_category = gets.chomp.downcase #this would allow user to re-enter valid 'new_category'
+  # end
+
   puts "What is the updated amount?"
-  new_amount = gets.chomp.to_f
+  new_amount = gets.chomp
+
   puts "Is it a credit? Indicate 'yes' or 'no'"
   credit = gets.chomp.downcase
 
@@ -154,7 +161,18 @@ def edit_transaction(account_id)
     credit = nil
   end
 
-  transaction.update(date: new_date, payee: new_payee, category: new_category, amount: new_amount, credit: credit)
+  a = transaction.new(date: new_date, payee: new_payee, category: new_category, amount: new_amount, credit: credit)
+
+  # a = account.transaction.new(date: new_date, payee: new_payee, category: new_category, amount: new_amount, credit: credit)
+
+  a.valid?
+    if a.valid?
+      a.save
+      puts "Your entry is valid"
+    else
+      puts a.errors.messages
+      puts "Your entry is invalid"
+    end
 
   #this updates the balance of the account
   update_balance(transaction.id)
