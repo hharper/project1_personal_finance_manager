@@ -1,8 +1,7 @@
 require_relative 'spec_helper'
-require_relative '/lib'
-require_relative 'personal_finance_db'
-require_relative 'personal_finance_methods'
-require_relative 'personal_finance_classes'
+require_relative '../lib/personal_finance_db'
+require_relative '../lib/personal_finance_methods'
+require_relative '../lib/personal_finance_classes'
 
 ################
 ##ACCOUNT TEST##
