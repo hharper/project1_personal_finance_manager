@@ -1,8 +1,6 @@
 
 require_relative 'personal_finance_db'
-##UPDATED THIS WITH NEW CODE...COULD GO BACK TO:
-#require_relative 'personal_finance_methods'
-require_relative 'UPDATED_personal_finance_methods'
+require_relative 'personal_finance_methods'
 require_relative 'personal_finance_classes'
 
 #require 'pry'
