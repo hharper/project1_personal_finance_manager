@@ -3,7 +3,6 @@ require_relative '/lib'
 require_relative 'personal_finance_db'
 require_relative 'personal_finance_methods'
 require_relative 'personal_finance_classes'
-# ^make sure this is the correct file structure...do i need actual files or is just directory of those files ok? Probably need to require each file...
 
 ################
 ##ACCOUNT TEST##
