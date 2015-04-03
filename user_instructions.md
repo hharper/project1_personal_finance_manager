@@ -40,3 +40,6 @@ RUN THE PROGRAM
 10. Enjoy the personal finance manager!!
 
 #####
+VIEW THE USER STORIES:
+
+https://trello.com/b/o3JRYiQM/project-1-personal-finance 
