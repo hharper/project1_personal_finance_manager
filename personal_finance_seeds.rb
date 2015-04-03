@@ -1,10 +1,13 @@
 require 'active_record'
+require_relative 'personal_finance_db'
 
 ActiveRecord::Base.establish_connection(
   :adapter => "postgresql",
   :host => "localhost",
   :database => "finance_db"
 )
+
+CreateFinance.new
 
 class Account < ActiveRecord::Base
 end

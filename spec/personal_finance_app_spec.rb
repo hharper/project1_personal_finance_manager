@@ -69,6 +69,9 @@ end
 ###########################
 #INSTANCE METHODS TESTS#
 ###########################
+
+#pending tests:#
+
 describe "#update_balance" do
 
   context "when the transaction is a credit (credit boolean == true)" do
@@ -107,28 +110,4 @@ end
 
 describe "#view_transaction_by_category" do
   it "lists all transaction categories with their corresponding amount totals"
-end
-
-
-###########################
-#OTHER UNIMPLEMENTED TESTS#
-###########################
-
-
-describe "personal finance app" do
-  it "has a user"
-  it "has accounts it references"
-  it "has a menu for user to choose options"
-end
-
-describe "user" do
-  it "has an account" do
-    user = User.new
-    expect(user.account).to be_true
-  end
-end
-
-describe "category" do
-  it "has transactions"
-  it "has a total amount per category"
 end

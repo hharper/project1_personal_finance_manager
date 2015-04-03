@@ -5,7 +5,6 @@ require_relative 'personal_finance_db'
 require_relative 'UPDATED_personal_finance_methods'
 require_relative 'personal_finance_classes'
 
-#require_relative 'personal_finance_seeds'
 #require 'pry'
 
 puts "Welcome to the Personal Finance Manager!\n"

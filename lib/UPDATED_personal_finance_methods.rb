@@ -1,6 +1,6 @@
 
 #PSEUDO CODE#
-#for each transaction, if the transaction is a credit (+), add its amount to the current account balance
+#update_balance: for each transaction, if the transaction is a credit (+), add its amount to the current account balance
 #else, if the transaction is NOT a credit (-), subtract its amount from the current account balance
 
 def update_balance(transaction_id)
@@ -13,8 +13,7 @@ def update_balance(transaction_id)
     else
       account.update(balance: balance - transaction.amount)
     end
-  end
-
+end
 
 
 def list_all_accounts
@@ -207,6 +206,5 @@ total_category_amount = Transaction.find_by_sql("SELECT category, SUM(amount) AS
 total_category_amount.each do |total|
   puts "#{total.category}: $#{total.totalamount}"
 end
-
 
 end
