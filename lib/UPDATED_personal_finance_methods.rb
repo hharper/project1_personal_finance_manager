@@ -25,7 +25,7 @@ end
 
 
 def get_account
-  puts "Which account?"
+  puts "Which account? Please indicate by account number:"
   list_all_accounts
   return gets.chomp.to_i
 end

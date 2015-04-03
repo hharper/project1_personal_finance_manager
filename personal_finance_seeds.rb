@@ -6,6 +6,11 @@ ActiveRecord::Base.establish_connection(
   :database => "finance_db"
 )
 
+class Account < ActiveRecord::Base
+end
+
+Account.create([{balance: 1000.75}, {balance: 5020.55}])
+
 class Transaction < ActiveRecord::Base
 end
 
