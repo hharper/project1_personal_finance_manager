@@ -59,13 +59,13 @@ def add_transaction(account_id)
   puts "What category does the transaction belong to? Please type out your choice based on the following list:"
   ##puts list of categories - user to type out
   puts "
-  -income
-  -rent
-  -transportation
-  -food
-  -shopping
-  -entertainment
-  -personal care"
+  income
+  rent
+  transportation
+  food
+  shopping
+  entertainment
+  personal care"
   category = gets.chomp.downcase
   if !["income", "rent", "transportation", "personal care", "entertainment", "shopping", "food"].include?(category)
     puts "#{category} is not a valid category. Please type a valid category from the given list above."
@@ -128,13 +128,13 @@ def edit_transaction(account_id)
   new_payee = gets.chomp
   puts "What is the updated category? Please type out your choice based on the following list:"
   puts "
-  -income
-  -rent
-  -transportation
-  -food
-  -shopping
-  -entertainment
-  -personal care"
+  income
+  rent
+  transportation
+  food
+  shopping
+  entertainment
+  personal care"
   new_category = gets.chomp
   if !["income", "rent", "transportation", "personal care", "entertainment", "shopping", "food"].include?(new_category)
     puts "#{new_category} is not a valid category. Please type a valid category from the given list above."
@@ -161,21 +161,23 @@ def edit_transaction(account_id)
     credit = nil
   end
 
-  a = transaction.new(date: new_date, payee: new_payee, category: new_category, amount: new_amount, credit: credit)
+  a = transaction.update(date: new_date, payee: new_payee, category: new_category, amount: new_amount, credit: credit)
 
   # a = account.transaction.new(date: new_date, payee: new_payee, category: new_category, amount: new_amount, credit: credit)
 
-  a.valid?
-    if a.valid?
-      a.save
-      puts "Your entry is valid"
-    else
-      puts a.errors.messages
-      puts "Your entry is invalid"
-    end
+  # a.valid?
+  #   if a.valid?
+  #     a.save
+  #     puts "Your entry is valid"
+  #   else
+  #     puts a.errors.messages
+  #     puts "Your entry is invalid"
+  #   end
 
   #this updates the balance of the account
   update_balance(transaction.id)
+
+puts "Thank you. The transaction has been updated."
 
 end
 
