@@ -63,9 +63,9 @@ def add_transaction(account_id)
   food
   shopping
   entertainment
-  personal care"
+  personal"
   category = gets.chomp.downcase
-  if !["income", "rent", "transportation", "personal care", "entertainment", "shopping", "food"].include?(category)
+  if !["income", "rent", "transportation", "personal", "entertainment", "shopping", "food"].include?(category)
     puts "#{category} is not a valid category. Please type a valid category from the given list above."
     category = gets.chomp.downcase
   end
@@ -127,9 +127,9 @@ def edit_transaction(account_id)
   food
   shopping
   entertainment
-  personal care"
+  personal"
   new_category = gets.chomp
-  if !["income", "rent", "transportation", "personal care", "entertainment", "shopping", "food"].include?(new_category)
+  if !["income", "rent", "transportation", "personal", "entertainment", "shopping", "food"].include?(new_category)
     puts "#{new_category} is not a valid category. Please type a valid category from the given list above."
     new_category = gets.chomp.downcase
   end

@@ -37,7 +37,7 @@ Transaction.create([
 
   {account_id: 2, date: "02/03/15", payee: "Chipotle", category: "food", amount: 10.04 , credit: false},
 
-  {account_id: 2, date: "02/08/15", payee: "CVS", category: "personal care", amount: 50.01 , credit: false},
+  {account_id: 2, date: "02/08/15", payee: "CVS", category: "personal", amount: 50.01 , credit: false},
 
   {account_id: 1, date: "2/15/15", payee: "Global Prairie", category: "income", amount: 1000.00 , credit: true},
 
